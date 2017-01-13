@@ -83,22 +83,37 @@ class ContainerBuilder(object):
         """
         setup_options = {}
         if self.container_config and self.container_config.get_name():
-            setup_options['container_name'] = self.container_config.get_name()
+            setup_options['container_name'] = \
+                self.container_config.get_name()
+
+        if self.container_config and self.container_config.get_entry_command():
+            setup_options['entry_command'] = \
+                self.container_config.get_entry_command()
 
         container_setup = ContainerSetup(
             self.requested_container_type, self.root_dir, setup_options
         )
         log.info('Setting up %s container', self.requested_container_type)
-        log.info(
-            '--> Container name: %s', container_setup.get_container_name()
-        )
+        if 'container_name' in setup_options:
+            log.info(
+                '--> Container name: %{0}'.format(
+                    setup_options['container_name']
+                )
+            )
+        if 'entry_command' in setup_options:
+            log.info(
+                '--> Container entry command: %{0}'.format(
+                    setup_options['entry_command']
+                )
+            )
+
         container_setup.setup()
 
         log.info(
-            '--> Creating container archive'
+            '--> Creating container image'
         )
         container_image = ContainerImage(
-            self.requested_container_type, self.root_dir
+            self.requested_container_type, self.root_dir, setup_options
         )
         container_image.create(
             self.filename

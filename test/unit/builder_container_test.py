@@ -18,6 +18,9 @@ class TestContainerBuilder(object):
         container_config.get_name = mock.Mock(
             return_value='my-container'
         )
+        container_config.get_entry_command = mock.Mock(
+            return_value='/some/command'
+        )
         xml_state.get_build_type_containerconfig_section = mock.Mock(
             return_value=container_config
         )
@@ -49,12 +52,16 @@ class TestContainerBuilder(object):
         self.setup.export_rpm_package_verification.return_value = '.verified'
         self.setup.export_rpm_package_list.return_value = '.packages'
         self.container.create()
+        setup_dict = {
+            'container_name': 'my-container',
+            'entry_command': '/some/command'
+        }
         mock_setup.assert_called_once_with(
-            'docker', 'root_dir', {'container_name': 'my-container'}
+            'docker', 'root_dir', setup_dict
         )
         container_setup.setup.assert_called_once_with()
         mock_image.assert_called_once_with(
-            'docker', 'root_dir'
+            'docker', 'root_dir', setup_dict
         )
         container_image.create.assert_called_once_with(
             'target_dir/image_name.x86_64-1.2.3.docker.tar.xz'
