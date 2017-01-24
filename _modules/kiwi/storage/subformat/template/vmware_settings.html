@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kiwi.storage.subformat.template.vmware_settings &mdash; kiwi 8.29.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="kiwi 8.29.4 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="kiwi.storage.subformat" href="../../subformat.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> kiwi
+          
+
+          
+            
+            <img src="../../../../../_static/kiwi-logo.png" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#compatibility">Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#example-appliance-descriptions">Example Appliance Descriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../quickstart.html#example-image-build-on-host-system">Example Image Build on Host System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../quickstart.html#example-image-build-in-container">Example Image Build in Container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#using-kiwi-ng-from-build-service">Using KIWI NG from Build Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#using-kiwi-ng-in-a-python-project">Using KIWI NG in a Python Project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../container_builder.html">Building in a Self-Contained Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#installing-and-setting-up-dice">Installing and Setting up Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#installing-and-setting-up-docker">Installing and Setting up Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#installing-and-setting-up-the-build-container">Installing and Setting up the Build Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#pull-from-dockerhub">Pull from Dockerhub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#download-from-the-open-buildservice">Download from the Open BuildService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#installing-and-setting-up-vagrant">Installing and Setting up Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#configuring-dice">Configuring Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#selecting-a-kiwi-template">Selecting a KIWI Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#the-dicefile">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#building-with-dice">Building with Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#buildsystem-backends">Buildsystem Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#building-with-the-host-buildsystem">Building with the Host Buildsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#id1">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#building-with-the-vagrant-buildsystem">Building with the Vagrant Buildsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#id2">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#the-vagrant-setup-for-the-docker-provider">The Vagrant setup for the Docker Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#the-vagrantfile">The Vagrantfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#the-vagrant-setup-for-the-libvirt-provider">The Vagrant setup for the libvirt Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#the-vagrant-build-box">The Vagrant Build Box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../container_builder.html#id3">The Vagrantfile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legacy_kiwi.html">Legacy KIWI vs. Next Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../legacy_kiwi.html#when-do-i-need-to-use-the-legacy-kiwi">When Do I need to use the legacy kiwi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../legacy_kiwi.html#dropped-features">Dropped Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Development and Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#runtime-requirements">Runtime Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#development-requirements">Development Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#contributing">Contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../contributing.html#running-test-cases">Running Test Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../contributing.html#working-with-branches">Working with Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../contributing.html#signing-git-patches">Signing Git Patches</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#raising-versions">Raising Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#creating-a-package">Creating a Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html#building-documentation">Building Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/kiwi.html">Manual Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#global-options">GLOBAL OPTIONS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#example">EXAMPLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#services-and-commands">SERVICES and COMMANDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/image_resize.html">kiwi image resize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/image_resize.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/image_resize.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/image_resize.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/result_list.html">kiwi result list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_list.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_list.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_list.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/result_bundle.html">kiwi result bundle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_bundle.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_bundle.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/result_bundle.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/system_prepare.html">kiwi system prepare</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_prepare.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_prepare.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_prepare.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/system_create.html">kiwi system create</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_create.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_create.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_create.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/system_update.html">kiwi system update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_update.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_update.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_update.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../manual/system_build.html">kiwi system build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_build.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_build.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_build.html#options">OPTIONS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../manual/system_build.html#uri-types">URI_TYPES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../manual/kiwi.html#compatibility">COMPATIBILITY</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/kiwi.html">API Documentation 8.29.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.archive.html">kiwi.archive Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.archive.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.archive.html#module-kiwi.archive.cpio"><code class="docutils literal"><span class="pre">kiwi.archive.cpio</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.archive.html#module-kiwi.archive.tar"><code class="docutils literal"><span class="pre">kiwi.archive.tar</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.archive.html#module-kiwi.archive">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.boot.html">kiwi.boot Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.boot.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.boot.html#module-kiwi.boot">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.bootloader.html">kiwi.bootloader Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.bootloader.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.bootloader.html#module-kiwi.bootloader">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.builder.html">kiwi.builder Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.archive"><code class="docutils literal"><span class="pre">kiwi.builder.archive</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.container"><code class="docutils literal"><span class="pre">kiwi.builder.container</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.disk"><code class="docutils literal"><span class="pre">kiwi.builder.disk</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.filesystem"><code class="docutils literal"><span class="pre">kiwi.builder.filesystem</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.install"><code class="docutils literal"><span class="pre">kiwi.builder.install</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.live"><code class="docutils literal"><span class="pre">kiwi.builder.live</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder.pxe"><code class="docutils literal"><span class="pre">kiwi.builder.pxe</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.builder.html#module-kiwi.builder">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.container.html">kiwi.container Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.container.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.container.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.container.html#module-kiwi.container.docker"><code class="docutils literal"><span class="pre">kiwi.container.docker</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html">kiwi.filesystem Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.base"><code class="docutils literal"><span class="pre">kiwi.filesystem.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.btrfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.btrfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.clicfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.clicfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext2"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext2</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext3"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext3</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext4"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext4</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.fat16"><code class="docutils literal"><span class="pre">kiwi.filesystem.fat16</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.fat32"><code class="docutils literal"><span class="pre">kiwi.filesystem.fat32</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.isofs"><code class="docutils literal"><span class="pre">kiwi.filesystem.isofs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.setup"><code class="docutils literal"><span class="pre">kiwi.filesystem.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.squashfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.squashfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem.xfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.xfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.filesystem.html#module-kiwi.filesystem">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html">kiwi.package_manager Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.base"><code class="docutils literal"><span class="pre">kiwi.package_manager.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.yum"><code class="docutils literal"><span class="pre">kiwi.package_manager.yum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="docutils literal"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.package_manager.html#module-kiwi.package_manager">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html">kiwi.partitioner Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#module-kiwi.partitioner.base"><code class="docutils literal"><span class="pre">kiwi.partitioner.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#module-kiwi.partitioner.dasd"><code class="docutils literal"><span class="pre">kiwi.partitioner.dasd</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#module-kiwi.partitioner.gpt"><code class="docutils literal"><span class="pre">kiwi.partitioner.gpt</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#module-kiwi.partitioner.msdos"><code class="docutils literal"><span class="pre">kiwi.partitioner.msdos</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.partitioner.html#module-kiwi.partitioner">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.repository.html">kiwi.repository Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#module-kiwi.repository.base"><code class="docutils literal"><span class="pre">kiwi.repository.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#module-kiwi.repository.yum"><code class="docutils literal"><span class="pre">kiwi.repository.yum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="docutils literal"><span class="pre">kiwi.repository.zypper</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.repository.html#module-kiwi.repository">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.storage.html">kiwi.storage Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.device_provider"><code class="docutils literal"><span class="pre">kiwi.storage.device_provider</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.disk"><code class="docutils literal"><span class="pre">kiwi.storage.disk</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.loop_device"><code class="docutils literal"><span class="pre">kiwi.storage.loop_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.luks_device"><code class="docutils literal"><span class="pre">kiwi.storage.luks_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.mapped_device"><code class="docutils literal"><span class="pre">kiwi.storage.mapped_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.raid_device"><code class="docutils literal"><span class="pre">kiwi.storage.raid_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage.setup"><code class="docutils literal"><span class="pre">kiwi.storage.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.storage.html#module-kiwi.storage">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.system.html">kiwi.system Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.identifier"><code class="docutils literal"><span class="pre">kiwi.system.identifier</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.kernel"><code class="docutils literal"><span class="pre">kiwi.system.kernel</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.prepare"><code class="docutils literal"><span class="pre">kiwi.system.prepare</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.profile"><code class="docutils literal"><span class="pre">kiwi.system.profile</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.result"><code class="docutils literal"><span class="pre">kiwi.system.result</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.root_bind"><code class="docutils literal"><span class="pre">kiwi.system.root_bind</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.root_init"><code class="docutils literal"><span class="pre">kiwi.system.root_init</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.setup"><code class="docutils literal"><span class="pre">kiwi.system.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.shell"><code class="docutils literal"><span class="pre">kiwi.system.shell</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.size"><code class="docutils literal"><span class="pre">kiwi.system.size</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.uri"><code class="docutils literal"><span class="pre">kiwi.system.uri</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system.users"><code class="docutils literal"><span class="pre">kiwi.system.users</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.system.html#module-kiwi.system">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.solver.html">kiwi.solver Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.solver.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.solver.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.solver.html#module-kiwi.solver.sat"><code class="docutils literal"><span class="pre">kiwi.solver.sat</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.solver.html#module-kiwi.solver">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.tasks.html">kiwi.tasks package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.base"><code class="docutils literal"><span class="pre">kiwi.tasks.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.result_bundle"><code class="docutils literal"><span class="pre">kiwi.tasks.result_bundle</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.result_list"><code class="docutils literal"><span class="pre">kiwi.tasks.result_list</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.system_build"><code class="docutils literal"><span class="pre">kiwi.tasks.system_build</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.system_create"><code class="docutils literal"><span class="pre">kiwi.tasks.system_create</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.system_prepare"><code class="docutils literal"><span class="pre">kiwi.tasks.system_prepare</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks.system_update"><code class="docutils literal"><span class="pre">kiwi.tasks.system_update</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.tasks.html#module-kiwi.tasks">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.utils.html">kiwi.utils Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils.block"><code class="docutils literal"><span class="pre">kiwi.utils.checksum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils.checksum"><code class="docutils literal"><span class="pre">kiwi.utils.block</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils.compress"><code class="docutils literal"><span class="pre">kiwi.utils.compress</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils.sync"><code class="docutils literal"><span class="pre">kiwi.utils.sync</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils.sysconfig"><code class="docutils literal"><span class="pre">kiwi.utils.sysconfig</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.utils.html#module-kiwi.utils">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html">kiwi.volume_manager Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.base"><code class="docutils literal"><span class="pre">kiwi.volume_manager.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.btrfs"><code class="docutils literal"><span class="pre">kiwi.volume_manager.btrfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.lvm"><code class="docutils literal"><span class="pre">kiwi.volume_manager.lvm</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager">Module Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.app"><code class="docutils literal"><span class="pre">kiwi.app</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.cli"><code class="docutils literal"><span class="pre">kiwi.cli</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.command"><code class="docutils literal"><span class="pre">kiwi.command</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.command_process"><code class="docutils literal"><span class="pre">kiwi.command_process</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.defaults"><code class="docutils literal"><span class="pre">kiwi.defaults</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.exceptions"><code class="docutils literal"><span class="pre">kiwi.exceptions</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.firmware"><code class="docutils literal"><span class="pre">kiwi.firmware</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.help"><code class="docutils literal"><span class="pre">kiwi.help</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.iso"><code class="docutils literal"><span class="pre">kiwi.iso</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.kiwi"><code class="docutils literal"><span class="pre">kiwi.kiwi</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.logger"><code class="docutils literal"><span class="pre">kiwi.logger</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.mount_manager"><code class="docutils literal"><span class="pre">kiwi.mount_manager</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.path"><code class="docutils literal"><span class="pre">kiwi.path</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.privileges"><code class="docutils literal"><span class="pre">kiwi.privileges</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.version"><code class="docutils literal"><span class="pre">kiwi.version</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.xml_description"><code class="docutils literal"><span class="pre">kiwi.xml_description</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi.xml_state"><code class="docutils literal"><span class="pre">kiwi.xml_state</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/kiwi.html#module-kiwi">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../schema.html">Schema Documentation 6.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schema.html#image">image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#description">description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#author">author</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#contact">contact</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#specification">specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#preferences">preferences</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#bootsplash-theme">bootsplash-theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#bootloader-theme">bootloader-theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#defaultdestination">defaultdestination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#defaultprebuilt">defaultprebuilt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#defaultroot">defaultroot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#hwclock">hwclock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#keytable">keytable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#locale">locale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#packagemanager">packagemanager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#partitioner">partitioner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#rpm-check-signatures">rpm-check-signatures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#rpm-excludedocs">rpm-excludedocs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#rpm-force">rpm-force</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#showlicense">showlicense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#timezone">timezone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#type">type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#version">version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#profiles">profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#profile">profile</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#instsource">instsource</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#architectures">architectures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#productoptions">productoptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#instrepo">instrepo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#repopackages">repopackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#driverupdate">driverupdate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#users">users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#drivers">drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#file">file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#strip">strip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#k-image-strip-file">file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#repository">repository</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#k-image-repository-source">source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#packages">packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#archive">archive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#ignore">ignore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#namedcollection">namedCollection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#product">product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../schema.html#package">package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../schema.html#extension">extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../workflow.html">Basic Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflow.html#building-images">Building Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../workflow.html#the-prepare-step">The Prepare Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../workflow.html#the-create-step">The Create Step</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflow.html#customizing-the-boot-process">Customizing the Boot Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../workflow.html#boot-image-hook-scripts">Boot Image Hook-Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../workflow.html#script-types">Script Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../workflow.html#including-hook-scripts-into-the-boot-image">Including Hook Scripts into the Boot Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../workflow.html#post-commands">Post Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../workflow.html#boot-parameters">Boot Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../workflow.html#boot-debugging">Boot Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../workflow.html#faq-boot-image-customization">FAQ: Boot Image Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflow.html#distribution-specific-code">Distribution Specific Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../extensions.html">Extending KIWI with Custom Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extensions.html#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extensions.html#using-the-extension">Using the Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">kiwi</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../../subformat.html">kiwi.storage.subformat</a> &raquo;</li>
+      
+    <li>kiwi.storage.subformat.template.vmware_settings</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for kiwi.storage.subformat.template.vmware_settings</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2015 SUSE Linux GmbH.  All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of kiwi.</span>
+<span class="c1">#</span>
+<span class="c1"># kiwi is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># kiwi is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with kiwi.  If not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="k">import</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="k">import</span> <span class="n">dedent</span>
+
+
+<div class="viewcode-block" id="VmwareSettingsTemplate"><a class="viewcode-back" href="../../../../../api/kiwi.storage.subformat.template.html#kiwi.storage.subformat.template.vmware_settings.VmwareSettingsTemplate">[docs]</a><span class="k">class</span> <span class="nc">VmwareSettingsTemplate</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    VMware machine settings template</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            #!/usr/bin/env vmware</span>
+<span class="s1">            # kiwi generated VMware settings file</span>
+<span class="s1">            config.version = &quot;8&quot;</span>
+<span class="s1">            tools.syncTime = &quot;true&quot;</span>
+<span class="s1">            uuid.action = &quot;create&quot;</span>
+<span class="s1">            virtualHW.version = &quot;$</span><span class="si">{virtual_hardware_version}</span><span class="s1">&quot;</span>
+<span class="s1">            displayName = &quot;$</span><span class="si">{display_name}</span><span class="s1">&quot;</span>
+<span class="s1">            guestOS = &quot;$</span><span class="si">{guest_os}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ide_disk</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ide$</span><span class="si">{disk_id}</span><span class="s1">:0.present = &quot;true&quot;</span>
+<span class="s1">            ide$</span><span class="si">{disk_id}</span><span class="s1">:0.fileName= &quot;$</span><span class="si">{vmdk_file}</span><span class="s1">&quot;</span>
+<span class="s1">            ide$</span><span class="si">{disk_id}</span><span class="s1">:0.redo = &quot;&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">scsi_disk</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">.present = &quot;true&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">.sharedBus = &quot;none&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">.virtualDev = &quot;$</span><span class="si">{scsi_controller_name}</span><span class="s1">&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">:0.present = &quot;true&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">:0.fileName = &quot;$</span><span class="si">{vmdk_file}</span><span class="s1">&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{disk_id}</span><span class="s1">:0.deviceType = &quot;scsi-hardDisk&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.present = &quot;true&quot;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.allow64bitVmxnet = &quot;true&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_mac_static</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.addressType = &quot;static&quot;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.address = &quot;$</span><span class="si">{mac_address}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_mac_generated</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.addressType = &quot;generated&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_driver</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.virtualDev = &quot;$</span><span class="si">{network_driver}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_connection_type</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ethernet$</span><span class="si">{nic_id}</span><span class="s1">.connectionType = &quot;$</span><span class="si">{network_connection_type}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            memsize = &quot;$</span><span class="si">{memory_size}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_cpus</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            numvcpus = &quot;$</span><span class="si">{number_of_cpus}</span><span class="s1">&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ide_iso</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            ide$</span><span class="si">{iso_id}</span><span class="s1">:0.present = &quot;true&quot;</span>
+<span class="s1">            ide$</span><span class="si">{iso_id}</span><span class="s1">:0.deviceType = &quot;cdrom-raw&quot;</span>
+<span class="s1">            ide$</span><span class="si">{iso_id}</span><span class="s1">:0.autodetect = &quot;true&quot;</span>
+<span class="s1">            ide$</span><span class="si">{iso_id}</span><span class="s1">:0.startConnected = &quot;true&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">scsi_iso</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            scsi$</span><span class="si">{iso_id}</span><span class="s1">:0.present = &quot;true&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{iso_id}</span><span class="s1">:0.deviceType = &quot;cdrom-raw&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{iso_id}</span><span class="s1">:0.autodetect = &quot;true&quot;</span>
+<span class="s1">            scsi$</span><span class="si">{iso_id}</span><span class="s1">:0.startConnected = &quot;true&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">usb</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            usb.present = &quot;true&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            priority.grabbed = &quot;normal&quot;</span>
+<span class="s1">            priority.ungrabbed = &quot;normal&quot;</span>
+<span class="s1">            powerType.powerOff = &quot;soft&quot;</span>
+<span class="s1">            powerType.powerOn  = &quot;soft&quot;</span>
+<span class="s1">            powerType.suspend  = &quot;soft&quot;</span>
+<span class="s1">            powerType.reset    = &quot;soft&quot;</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span>
+
+<div class="viewcode-block" id="VmwareSettingsTemplate.get_template"><a class="viewcode-back" href="../../../../../api/kiwi.storage.subformat.template.html#kiwi.storage.subformat.template.vmware_settings.VmwareSettingsTemplate.get_template">[docs]</a>    <span class="k">def</span> <span class="nf">get_template</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">memory_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cpu_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">network_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">iso_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">disk_controller</span><span class="o">=</span><span class="s1">&#39;ide&#39;</span><span class="p">,</span> <span class="n">iso_controller</span><span class="o">=</span><span class="s1">&#39;ide&#39;</span><span class="p">,</span>
+        <span class="n">network_mac</span><span class="o">=</span><span class="s1">&#39;generated&#39;</span><span class="p">,</span> <span class="n">network_driver</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">network_connection_type</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        VMware machine configuration template</span>
+
+<span class="sd">        :param bool memory_setup: with main memory setup true|false</span>
+<span class="sd">        :param bool cpu_setup: with number of CPU&#39;s setup true|false</span>
+<span class="sd">        :param bool network_setup: with network emulation true|false</span>
+<span class="sd">        :param bool iso_setup: with CD/DVD drive emulation true|false</span>
+<span class="sd">        :param string disk_controller: add disk controller setup to template</span>
+<span class="sd">        :param string iso_controller: add CD/DVD controller setup to template</span>
+<span class="sd">        :param string network_mac: add static MAC address setup to template</span>
+<span class="sd">        :param string network_driver: add network driver setup to template</span>
+<span class="sd">        :param string network_connection_type: add connection type to template</span>
+
+<span class="sd">        :rtype: Template</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">header</span>
+        <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span>
+
+        <span class="k">if</span> <span class="n">memory_setup</span><span class="p">:</span>
+            <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span>
+
+        <span class="k">if</span> <span class="n">cpu_setup</span><span class="p">:</span>
+            <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_cpus</span>
+
+        <span class="k">if</span> <span class="n">disk_controller</span> <span class="o">==</span> <span class="s1">&#39;ide&#39;</span><span class="p">:</span>
+            <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ide_disk</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scsi_disk</span>
+
+        <span class="k">if</span> <span class="n">network_setup</span><span class="p">:</span>
+            <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span>
+            <span class="k">if</span> <span class="n">network_mac</span> <span class="o">==</span> <span class="s1">&#39;generated&#39;</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_mac_generated</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_mac_static</span>
+            <span class="k">if</span> <span class="n">network_driver</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_driver</span>
+            <span class="k">if</span> <span class="n">network_connection_type</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_connection_type</span>
+
+        <span class="k">if</span> <span class="n">iso_setup</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">iso_controller</span> <span class="o">==</span> <span class="s1">&#39;ide&#39;</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ide_iso</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scsi_iso</span>
+
+        <span class="n">template_data</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usb</span>
+
+        <span class="k">return</span> <span class="n">Template</span><span class="p">(</span><span class="n">template_data</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Marcus Schäfer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'8.29.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

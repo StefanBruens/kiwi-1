@@ -1,0 +1,1559 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kiwi.builder.disk &mdash; kiwi 8.29.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="kiwi 8.29.4 documentation" href="../../../index.html"/>
+        <link rel="up" title="kiwi.builder" href="../builder.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> kiwi
+          
+
+          
+            
+            <img src="../../../_static/kiwi-logo.png" class="logo" />
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#compatibility">Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#example-appliance-descriptions">Example Appliance Descriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../quickstart.html#example-image-build-on-host-system">Example Image Build on Host System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../quickstart.html#example-image-build-in-container">Example Image Build in Container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#using-kiwi-ng-from-build-service">Using KIWI NG from Build Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#using-kiwi-ng-in-a-python-project">Using KIWI NG in a Python Project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../container_builder.html">Building in a Self-Contained Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#installing-and-setting-up-dice">Installing and Setting up Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#installing-and-setting-up-docker">Installing and Setting up Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#installing-and-setting-up-the-build-container">Installing and Setting up the Build Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#pull-from-dockerhub">Pull from Dockerhub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#download-from-the-open-buildservice">Download from the Open BuildService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#installing-and-setting-up-vagrant">Installing and Setting up Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#configuring-dice">Configuring Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#selecting-a-kiwi-template">Selecting a KIWI Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#the-dicefile">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#building-with-dice">Building with Dice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#buildsystem-backends">Buildsystem Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#building-with-the-host-buildsystem">Building with the Host Buildsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#id1">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#building-with-the-vagrant-buildsystem">Building with the Vagrant Buildsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#id2">The Dicefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#the-vagrant-setup-for-the-docker-provider">The Vagrant setup for the Docker Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#the-vagrantfile">The Vagrantfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#the-vagrant-setup-for-the-libvirt-provider">The Vagrant setup for the libvirt Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#the-vagrant-build-box">The Vagrant Build Box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../container_builder.html#id3">The Vagrantfile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legacy_kiwi.html">Legacy KIWI vs. Next Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../legacy_kiwi.html#when-do-i-need-to-use-the-legacy-kiwi">When Do I need to use the legacy kiwi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legacy_kiwi.html#dropped-features">Dropped Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Development and Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#runtime-requirements">Runtime Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#development-requirements">Development Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing">Contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#running-test-cases">Running Test Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#working-with-branches">Working with Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#signing-git-patches">Signing Git Patches</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#raising-versions">Raising Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#creating-a-package">Creating a Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#building-documentation">Building Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/kiwi.html">Manual Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#global-options">GLOBAL OPTIONS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#example">EXAMPLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#services-and-commands">SERVICES and COMMANDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/image_resize.html">kiwi image resize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/image_resize.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/image_resize.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/image_resize.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/result_list.html">kiwi result list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_list.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_list.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_list.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/result_bundle.html">kiwi result bundle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_bundle.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_bundle.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/result_bundle.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/system_prepare.html">kiwi system prepare</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_prepare.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_prepare.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_prepare.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/system_create.html">kiwi system create</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_create.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_create.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_create.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/system_update.html">kiwi system update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_update.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_update.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_update.html#options">OPTIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../manual/system_build.html">kiwi system build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_build.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_build.html#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_build.html#options">OPTIONS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../manual/system_build.html#uri-types">URI_TYPES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../manual/kiwi.html#compatibility">COMPATIBILITY</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/kiwi.html">API Documentation 8.29.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.archive.html">kiwi.archive Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.archive.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.archive.html#module-kiwi.archive.cpio"><code class="docutils literal"><span class="pre">kiwi.archive.cpio</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.archive.html#module-kiwi.archive.tar"><code class="docutils literal"><span class="pre">kiwi.archive.tar</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.archive.html#module-kiwi.archive">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.boot.html">kiwi.boot Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.boot.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.boot.html#module-kiwi.boot">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.bootloader.html">kiwi.bootloader Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.bootloader.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.bootloader.html#module-kiwi.bootloader">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.builder.html">kiwi.builder Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.archive"><code class="docutils literal"><span class="pre">kiwi.builder.archive</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.container"><code class="docutils literal"><span class="pre">kiwi.builder.container</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.disk"><code class="docutils literal"><span class="pre">kiwi.builder.disk</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.filesystem"><code class="docutils literal"><span class="pre">kiwi.builder.filesystem</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.install"><code class="docutils literal"><span class="pre">kiwi.builder.install</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.live"><code class="docutils literal"><span class="pre">kiwi.builder.live</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder.pxe"><code class="docutils literal"><span class="pre">kiwi.builder.pxe</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.builder.html#module-kiwi.builder">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.container.html">kiwi.container Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container.docker"><code class="docutils literal"><span class="pre">kiwi.container.docker</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.container.html#module-kiwi.container">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.filesystem.html">kiwi.filesystem Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.base"><code class="docutils literal"><span class="pre">kiwi.filesystem.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.btrfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.btrfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.clicfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.clicfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext2"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext2</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext3"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext3</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.ext4"><code class="docutils literal"><span class="pre">kiwi.filesystem.ext4</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.fat16"><code class="docutils literal"><span class="pre">kiwi.filesystem.fat16</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.fat32"><code class="docutils literal"><span class="pre">kiwi.filesystem.fat32</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.isofs"><code class="docutils literal"><span class="pre">kiwi.filesystem.isofs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.setup"><code class="docutils literal"><span class="pre">kiwi.filesystem.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.squashfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.squashfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem.xfs"><code class="docutils literal"><span class="pre">kiwi.filesystem.xfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.filesystem.html#module-kiwi.filesystem">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.package_manager.html">kiwi.package_manager Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.base"><code class="docutils literal"><span class="pre">kiwi.package_manager.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.yum"><code class="docutils literal"><span class="pre">kiwi.package_manager.yum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager.zypper"><code class="docutils literal"><span class="pre">kiwi.package_manager.zypper</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.package_manager.html#module-kiwi.package_manager">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.partitioner.html">kiwi.partitioner Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#module-kiwi.partitioner.base"><code class="docutils literal"><span class="pre">kiwi.partitioner.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#module-kiwi.partitioner.dasd"><code class="docutils literal"><span class="pre">kiwi.partitioner.dasd</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#module-kiwi.partitioner.gpt"><code class="docutils literal"><span class="pre">kiwi.partitioner.gpt</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#module-kiwi.partitioner.msdos"><code class="docutils literal"><span class="pre">kiwi.partitioner.msdos</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.partitioner.html#module-kiwi.partitioner">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.repository.html">kiwi.repository Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.base"><code class="docutils literal"><span class="pre">kiwi.repository.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.yum"><code class="docutils literal"><span class="pre">kiwi.repository.yum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository.zypper"><code class="docutils literal"><span class="pre">kiwi.repository.zypper</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.repository.html#module-kiwi.repository">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.storage.html">kiwi.storage Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.device_provider"><code class="docutils literal"><span class="pre">kiwi.storage.device_provider</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.disk"><code class="docutils literal"><span class="pre">kiwi.storage.disk</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.loop_device"><code class="docutils literal"><span class="pre">kiwi.storage.loop_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.luks_device"><code class="docutils literal"><span class="pre">kiwi.storage.luks_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.mapped_device"><code class="docutils literal"><span class="pre">kiwi.storage.mapped_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.raid_device"><code class="docutils literal"><span class="pre">kiwi.storage.raid_device</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage.setup"><code class="docutils literal"><span class="pre">kiwi.storage.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.storage.html#module-kiwi.storage">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.system.html">kiwi.system Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.identifier"><code class="docutils literal"><span class="pre">kiwi.system.identifier</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.kernel"><code class="docutils literal"><span class="pre">kiwi.system.kernel</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.prepare"><code class="docutils literal"><span class="pre">kiwi.system.prepare</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.profile"><code class="docutils literal"><span class="pre">kiwi.system.profile</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.result"><code class="docutils literal"><span class="pre">kiwi.system.result</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.root_bind"><code class="docutils literal"><span class="pre">kiwi.system.root_bind</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.root_init"><code class="docutils literal"><span class="pre">kiwi.system.root_init</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.setup"><code class="docutils literal"><span class="pre">kiwi.system.setup</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.shell"><code class="docutils literal"><span class="pre">kiwi.system.shell</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.size"><code class="docutils literal"><span class="pre">kiwi.system.size</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.uri"><code class="docutils literal"><span class="pre">kiwi.system.uri</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system.users"><code class="docutils literal"><span class="pre">kiwi.system.users</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.system.html#module-kiwi.system">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.solver.html">kiwi.solver Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.solver.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.solver.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.solver.html#module-kiwi.solver.sat"><code class="docutils literal"><span class="pre">kiwi.solver.sat</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.solver.html#module-kiwi.solver">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.tasks.html">kiwi.tasks package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.base"><code class="docutils literal"><span class="pre">kiwi.tasks.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.result_bundle"><code class="docutils literal"><span class="pre">kiwi.tasks.result_bundle</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.result_list"><code class="docutils literal"><span class="pre">kiwi.tasks.result_list</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.system_build"><code class="docutils literal"><span class="pre">kiwi.tasks.system_build</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.system_create"><code class="docutils literal"><span class="pre">kiwi.tasks.system_create</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.system_prepare"><code class="docutils literal"><span class="pre">kiwi.tasks.system_prepare</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks.system_update"><code class="docutils literal"><span class="pre">kiwi.tasks.system_update</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.tasks.html#module-kiwi.tasks">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.utils.html">kiwi.utils Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils.block"><code class="docutils literal"><span class="pre">kiwi.utils.checksum</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils.checksum"><code class="docutils literal"><span class="pre">kiwi.utils.block</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils.compress"><code class="docutils literal"><span class="pre">kiwi.utils.compress</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils.sync"><code class="docutils literal"><span class="pre">kiwi.utils.sync</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils.sysconfig"><code class="docutils literal"><span class="pre">kiwi.utils.sysconfig</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.utils.html#module-kiwi.utils">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kiwi.volume_manager.html">kiwi.volume_manager Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.volume_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.base"><code class="docutils literal"><span class="pre">kiwi.volume_manager.base</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.btrfs"><code class="docutils literal"><span class="pre">kiwi.volume_manager.btrfs</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager.lvm"><code class="docutils literal"><span class="pre">kiwi.volume_manager.lvm</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kiwi.volume_manager.html#module-kiwi.volume_manager">Module Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.app"><code class="docutils literal"><span class="pre">kiwi.app</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.cli"><code class="docutils literal"><span class="pre">kiwi.cli</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.command"><code class="docutils literal"><span class="pre">kiwi.command</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.command_process"><code class="docutils literal"><span class="pre">kiwi.command_process</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.defaults"><code class="docutils literal"><span class="pre">kiwi.defaults</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.exceptions"><code class="docutils literal"><span class="pre">kiwi.exceptions</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.firmware"><code class="docutils literal"><span class="pre">kiwi.firmware</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.help"><code class="docutils literal"><span class="pre">kiwi.help</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.iso"><code class="docutils literal"><span class="pre">kiwi.iso</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.kiwi"><code class="docutils literal"><span class="pre">kiwi.kiwi</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.logger"><code class="docutils literal"><span class="pre">kiwi.logger</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.mount_manager"><code class="docutils literal"><span class="pre">kiwi.mount_manager</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.path"><code class="docutils literal"><span class="pre">kiwi.path</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.privileges"><code class="docutils literal"><span class="pre">kiwi.privileges</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.version"><code class="docutils literal"><span class="pre">kiwi.version</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.xml_description"><code class="docutils literal"><span class="pre">kiwi.xml_description</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi.xml_state"><code class="docutils literal"><span class="pre">kiwi.xml_state</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/kiwi.html#module-kiwi">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema.html">Schema Documentation 6.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../schema.html#image">image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#description">description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#author">author</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#contact">contact</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#specification">specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#preferences">preferences</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#bootsplash-theme">bootsplash-theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#bootloader-theme">bootloader-theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#defaultdestination">defaultdestination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#defaultprebuilt">defaultprebuilt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#defaultroot">defaultroot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#hwclock">hwclock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#keytable">keytable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#locale">locale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#packagemanager">packagemanager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#partitioner">partitioner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#rpm-check-signatures">rpm-check-signatures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#rpm-excludedocs">rpm-excludedocs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#rpm-force">rpm-force</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#showlicense">showlicense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#timezone">timezone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#type">type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#version">version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#profiles">profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#profile">profile</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#instsource">instsource</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#architectures">architectures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#productoptions">productoptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#instrepo">instrepo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#repopackages">repopackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#driverupdate">driverupdate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#users">users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#drivers">drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#file">file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#strip">strip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#k-image-strip-file">file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#repository">repository</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#k-image-repository-source">source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#packages">packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#archive">archive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#ignore">ignore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#namedcollection">namedCollection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#product">product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../schema.html#package">package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../schema.html#extension">extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../workflow.html">Basic Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflow.html#building-images">Building Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#the-prepare-step">The Prepare Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#the-create-step">The Create Step</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflow.html#customizing-the-boot-process">Customizing the Boot Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#boot-image-hook-scripts">Boot Image Hook-Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../workflow.html#script-types">Script Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../workflow.html#including-hook-scripts-into-the-boot-image">Including Hook Scripts into the Boot Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../workflow.html#post-commands">Post Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#boot-parameters">Boot Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../workflow.html#boot-debugging">Boot Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#faq-boot-image-customization">FAQ: Boot Image Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflow.html#distribution-specific-code">Distribution Specific Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extensions.html">Extending KIWI with Custom Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../extensions.html#the-extension-section">The &lt;extension&gt; Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extensions.html#relax-ng-schema-for-the-extension">RELAX NG Schema for the Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extensions.html#extension-schema-in-xml-catalog">Extension Schema in XML catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extensions.html#using-the-extension">Using the Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">kiwi</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../builder.html">kiwi.builder</a> &raquo;</li>
+      
+    <li>kiwi.builder.disk</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for kiwi.builder.disk</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2015 SUSE Linux GmbH.  All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of kiwi.</span>
+<span class="c1">#</span>
+<span class="c1"># kiwi is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># kiwi is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with kiwi.  If not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="k">import</span> <span class="n">NamedTemporaryFile</span>
+
+<span class="c1"># project</span>
+<span class="kn">from</span> <span class="nn">..defaults</span> <span class="k">import</span> <span class="n">Defaults</span>
+<span class="kn">from</span> <span class="nn">..bootloader.config</span> <span class="k">import</span> <span class="n">BootLoaderConfig</span>
+<span class="kn">from</span> <span class="nn">..bootloader.install</span> <span class="k">import</span> <span class="n">BootLoaderInstall</span>
+<span class="kn">from</span> <span class="nn">..system.identifier</span> <span class="k">import</span> <span class="n">SystemIdentifier</span>
+<span class="kn">from</span> <span class="nn">..boot.image</span> <span class="k">import</span> <span class="n">BootImage</span>
+<span class="kn">from</span> <span class="nn">..boot.image</span> <span class="k">import</span> <span class="n">BootImageKiwi</span>
+<span class="kn">from</span> <span class="nn">..storage.setup</span> <span class="k">import</span> <span class="n">DiskSetup</span>
+<span class="kn">from</span> <span class="nn">..storage.loop_device</span> <span class="k">import</span> <span class="n">LoopDevice</span>
+<span class="kn">from</span> <span class="nn">..firmware</span> <span class="k">import</span> <span class="n">FirmWare</span>
+<span class="kn">from</span> <span class="nn">..storage.disk</span> <span class="k">import</span> <span class="n">Disk</span>
+<span class="kn">from</span> <span class="nn">..storage.raid_device</span> <span class="k">import</span> <span class="n">RaidDevice</span>
+<span class="kn">from</span> <span class="nn">..storage.luks_device</span> <span class="k">import</span> <span class="n">LuksDevice</span>
+<span class="kn">from</span> <span class="nn">..filesystem</span> <span class="k">import</span> <span class="n">FileSystem</span>
+<span class="kn">from</span> <span class="nn">..filesystem.squashfs</span> <span class="k">import</span> <span class="n">FileSystemSquashFs</span>
+<span class="kn">from</span> <span class="nn">..volume_manager</span> <span class="k">import</span> <span class="n">VolumeManager</span>
+<span class="kn">from</span> <span class="nn">..logger</span> <span class="k">import</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">..command</span> <span class="k">import</span> <span class="n">Command</span>
+<span class="kn">from</span> <span class="nn">..system.setup</span> <span class="k">import</span> <span class="n">SystemSetup</span>
+<span class="kn">from</span> <span class="nn">.install</span> <span class="k">import</span> <span class="n">InstallImageBuilder</span>
+<span class="kn">from</span> <span class="nn">..system.kernel</span> <span class="k">import</span> <span class="n">Kernel</span>
+<span class="kn">from</span> <span class="nn">..storage.subformat</span> <span class="k">import</span> <span class="n">DiskFormat</span>
+<span class="kn">from</span> <span class="nn">..system.result</span> <span class="k">import</span> <span class="n">Result</span>
+<span class="kn">from</span> <span class="nn">..utils.block</span> <span class="k">import</span> <span class="n">BlockID</span>
+<span class="kn">from</span> <span class="nn">..path</span> <span class="k">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">KiwiDiskBootImageError</span><span class="p">,</span>
+    <span class="n">KiwiInstallMediaError</span><span class="p">,</span>
+    <span class="n">KiwiVolumeManagerSetupError</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="DiskBuilder"><a class="viewcode-back" href="../../../api/kiwi.builder.html#kiwi.builder.disk.DiskBuilder">[docs]</a><span class="k">class</span> <span class="nc">DiskBuilder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Disk image builder</span>
+
+<span class="sd">    Attributes</span>
+
+<span class="sd">    * :attr:`arch`</span>
+<span class="sd">        platform.machine</span>
+
+<span class="sd">    * :attr:`root_dir`</span>
+<span class="sd">        root directory path name</span>
+
+<span class="sd">    * :attr:`target_dir`</span>
+<span class="sd">        target directory path name</span>
+
+<span class="sd">    * :attr:`xml_state`</span>
+<span class="sd">        Instance of XMLState</span>
+
+<span class="sd">    * :attr:`custom_root_mount_args`</span>
+<span class="sd">        Configured custom root mount arguments</span>
+
+<span class="sd">    * :attr:`build_type_name`</span>
+<span class="sd">        Configured build type name, oem or vmx</span>
+
+<span class="sd">    * :attr:`image_format`</span>
+<span class="sd">        Configured disk image format</span>
+
+<span class="sd">    * :attr:`install_iso`</span>
+<span class="sd">        Request for install ISO image</span>
+
+<span class="sd">    * :attr:`install_stick`</span>
+<span class="sd">        Request for install Stick image, converts into a request</span>
+<span class="sd">        for the install ISO image because it can handle both cases</span>
+<span class="sd">        by the hybrid ISO setup</span>
+
+<span class="sd">    * :attr:`install_pxe`</span>
+<span class="sd">        Request for install PXE archive</span>
+
+<span class="sd">    * :attr:`blocksize`</span>
+<span class="sd">        Configured disk blocksize</span>
+
+<span class="sd">    * :attr:`volume_manager_name`</span>
+<span class="sd">        Configured volume manager</span>
+
+<span class="sd">    * :attr:`volumes`</span>
+<span class="sd">        Configured disk volumes</span>
+
+<span class="sd">    * :attr:`volume_group_name`</span>
+<span class="sd">        Configured volume group name</span>
+
+<span class="sd">    * :attr:`mdraid`</span>
+<span class="sd">        Request for md raid, degraded setup</span>
+
+<span class="sd">    * :attr:`hybrid_mbr`</span>
+<span class="sd">        Request to convert partition table to hybrid GPT/MBR&#39;</span>
+
+<span class="sd">    * :attr:`luks`</span>
+<span class="sd">        LUKS encryption credentials, also triggers to</span>
+<span class="sd">        encrypt the disk</span>
+
+<span class="sd">    * :attr:`luks_os`</span>
+<span class="sd">        Target operating system name for LUKS encryption</span>
+
+<span class="sd">    * :attr:`machine`</span>
+<span class="sd">        Configured build type machine section</span>
+
+<span class="sd">    * :attr:`requested_filesystem`</span>
+<span class="sd">        Configured root filesystem</span>
+
+<span class="sd">    * :attr:`requested_boot_filesystem`</span>
+<span class="sd">        Configured boot filesystem</span>
+
+<span class="sd">    * :attr:`bootloader`</span>
+<span class="sd">        Configured boot loader</span>
+
+<span class="sd">    * :attr:`initrd_system`</span>
+<span class="sd">        Configured initrd system</span>
+
+<span class="sd">    * :attr:`disk_setup`</span>
+<span class="sd">        Instance of DiskSetup</span>
+
+<span class="sd">    * :attr:`boot_image`</span>
+<span class="sd">        Instance of BootImage</span>
+
+<span class="sd">    * :attr:`firmware`</span>
+<span class="sd">        Instance of FirmWare</span>
+
+<span class="sd">    * :attr:`system_setup`</span>
+<span class="sd">        Instance of SystemSetup</span>
+
+<span class="sd">    * :attr:`diskname`</span>
+<span class="sd">        File name of the disk image</span>
+
+<span class="sd">    * :attr:`install_media`</span>
+<span class="sd">        Build of install media requested true|false</span>
+
+<span class="sd">    * :attr:`system`</span>
+<span class="sd">        Instance of a class with the sync_data capability</span>
+<span class="sd">        representing the entire image system except for the boot/ area</span>
+<span class="sd">        which could live on other parts of the disk</span>
+
+<span class="sd">    * :attr:`system_boot`</span>
+<span class="sd">        Instance of a class with the sync_data capability</span>
+<span class="sd">        representing the boot/ area of the disk if not part of</span>
+<span class="sd">        system</span>
+
+<span class="sd">    * :attr:`system_efi`</span>
+<span class="sd">        Instance of a class with the sync_data capability</span>
+<span class="sd">        representing the boot/efi area of the disk</span>
+
+<span class="sd">    * :attr:`generic_fstab_entries`</span>
+<span class="sd">        List of generic/persistent fstab entries</span>
+
+<span class="sd">    * :attr:`result`</span>
+<span class="sd">        Instance of Result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xml_state</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">,</span> <span class="n">root_dir</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">machine</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">==</span> <span class="s1">&#39;i686&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">==</span> <span class="s1">&#39;i586&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arch</span> <span class="o">=</span> <span class="s1">&#39;ix86&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">=</span> <span class="n">root_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">=</span> <span class="n">target_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span> <span class="o">=</span> <span class="n">xml_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">persistency_type</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_devicepersistency</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_is_overlay</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_overlayroot</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_root_mount_args</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_fs_mount_option_list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build_type_name</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_format</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">install_iso</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_installiso</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">install_stick</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_installstick</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">install_pxe</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_installpxe</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocksize</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_target_blocksize</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_volume_management</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">volumes</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_volumes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">volume_group_name</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_volume_group_name</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mdraid</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_mdraid</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hybrid_mbr</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_gpt_hybrid_mbr</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">luks</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_luks</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">luks_os</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_luksOS</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">machine</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_machine_section</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_filesystem</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requested_boot_filesystem</span> <span class="o">=</span> \
+            <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_bootfilesystem</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_bootloader</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_removable</span> <span class="o">=</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_target_removable</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span> <span class="o">=</span> <span class="n">DiskSetup</span><span class="p">(</span>
+            <span class="n">xml_state</span><span class="p">,</span> <span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span> <span class="o">=</span> <span class="n">BootImage</span><span class="p">(</span>
+            <span class="n">xml_state</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">,</span> <span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="o">=</span> <span class="n">FirmWare</span><span class="p">(</span>
+            <span class="n">xml_state</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span> <span class="o">=</span> <span class="n">SystemSetup</span><span class="p">(</span>
+            <span class="n">xml_state</span><span class="o">=</span><span class="n">xml_state</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">diskname</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                <span class="n">xml_state</span><span class="o">.</span><span class="n">xml_data</span><span class="o">.</span><span class="n">get_name</span><span class="p">(),</span>
+                <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch</span><span class="p">,</span>
+                <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">xml_state</span><span class="o">.</span><span class="n">get_image_version</span><span class="p">(),</span>
+                <span class="s1">&#39;.raw&#39;</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">install_media</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_install_image_requested</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic_fstab_entries</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># an instance of a class with the sync_data capability</span>
+        <span class="c1"># representing the entire image system except for the boot/ area</span>
+        <span class="c1"># which could live on another part of the disk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># an instance of a class with the sync_data capability</span>
+        <span class="c1"># representing the boot/ area of the disk if not part of</span>
+        <span class="c1"># self.system</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_boot</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># an instance of a class with the sync_data capability</span>
+        <span class="c1"># representing the boot/efi area of the disk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_efi</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># result store</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">Result</span><span class="p">(</span><span class="n">xml_state</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DiskBuilder.create"><a class="viewcode-back" href="../../../api/kiwi.builder.html#kiwi.builder.disk.DiskBuilder.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a bootable disk image and optional installation image</span>
+<span class="sd">        The installation image is a bootable hybrid ISO image which</span>
+<span class="sd">        embeds the disk image and an image installer</span>
+
+<span class="sd">        Image types which triggers this builder are:</span>
+
+<span class="sd">        * image=&quot;oem&quot;</span>
+<span class="sd">        * image=&quot;vmx&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">disk</span> <span class="o">=</span> <span class="n">DiskBuilder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">disk</span><span class="o">.</span><span class="n">create_disk</span><span class="p">()</span>
+
+        <span class="c1"># cleanup disk resources taken prior to next steps</span>
+        <span class="k">del</span> <span class="n">disk</span>
+
+        <span class="n">disk_installer</span> <span class="o">=</span> <span class="n">DiskBuilder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">disk_installer</span><span class="o">.</span><span class="n">create_install_media</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="n">disk_format</span> <span class="o">=</span> <span class="n">DiskBuilder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+        <span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">disk_format</span><span class="o">.</span><span class="n">create_disk_format</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="DiskBuilder.create_disk"><a class="viewcode-back" href="../../../api/kiwi.builder.html#kiwi.builder.disk.DiskBuilder.create_disk">[docs]</a>    <span class="k">def</span> <span class="nf">create_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a bootable raw disk image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_media</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_type_name</span> <span class="o">!=</span> <span class="s1">&#39;oem&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">KiwiInstallMediaError</span><span class="p">(</span>
+                <span class="s1">&#39;Install media requires oem type setup, got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">build_type_name</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_is_overlay</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">KiwiVolumeManagerSetupError</span><span class="p">(</span>
+                <span class="s1">&#39;Volume management together with root overlay is not supported&#39;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># setup recovery archive, cleanup and create archive if requested</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">create_recovery_archive</span><span class="p">()</span>
+
+        <span class="c1"># prepare boot(initrd) root system</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Preparing boot system&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+
+        <span class="c1"># precalculate needed disk size</span>
+        <span class="n">disksize_mbytes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_disksize_mbytes</span><span class="p">()</span>
+
+        <span class="c1"># create the disk</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating raw disk image </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">diskname</span><span class="p">)</span>
+        <span class="n">loop_provider</span> <span class="o">=</span> <span class="n">LoopDevice</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">diskname</span><span class="p">,</span> <span class="n">disksize_mbytes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocksize</span>
+        <span class="p">)</span>
+        <span class="n">loop_provider</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">disk</span> <span class="o">=</span> <span class="n">Disk</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_partition_table_type</span><span class="p">(),</span> <span class="n">loop_provider</span>
+        <span class="p">)</span>
+
+        <span class="c1"># create the bootloader instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span> <span class="o">=</span> <span class="n">BootLoaderConfig</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span>
+            <span class="p">{</span><span class="s1">&#39;targetbase&#39;</span><span class="p">:</span> <span class="n">loop_provider</span><span class="o">.</span><span class="n">get_device</span><span class="p">()}</span>
+        <span class="p">)</span>
+
+        <span class="c1"># create disk partitions and instance device map</span>
+        <span class="n">device_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_and_map_disk_partitions</span><span class="p">()</span>
+
+        <span class="c1"># create raid on current root device if requested</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdraid</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raid_root</span> <span class="o">=</span> <span class="n">RaidDevice</span><span class="p">(</span><span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raid_root</span><span class="o">.</span><span class="n">create_degraded_raid</span><span class="p">(</span><span class="n">raid_level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mdraid</span><span class="p">)</span>
+            <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raid_root</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+
+        <span class="c1"># create luks on current root device if requested</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">luks_root</span> <span class="o">=</span> <span class="n">LuksDevice</span><span class="p">(</span><span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">luks_root</span><span class="o">.</span><span class="n">create_crypto_luks</span><span class="p">(</span>
+                <span class="n">passphrase</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">,</span> <span class="n">os</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">luks_os</span>
+            <span class="p">)</span>
+            <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks_root</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+
+        <span class="c1"># create filesystems on boot partition(s) if any</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_boot_filesystems</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+
+        <span class="c1"># create volumes and filesystems for root system</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span><span class="p">:</span>
+            <span class="n">volume_manager_custom_parameters</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;fs_mount_options&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">custom_root_mount_args</span><span class="p">,</span>
+                <span class="s1">&#39;root_label&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_root_label</span><span class="p">(),</span>
+                <span class="s1">&#39;root_is_snapshot&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_snapshot</span><span class="p">(),</span>
+                <span class="s1">&#39;root_is_readonly_snapshot&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_readonly_snapshot</span><span class="p">(),</span>
+                <span class="s1">&#39;image_type&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">get_build_type_name</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="n">volume_manager</span> <span class="o">=</span> <span class="n">VolumeManager</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">volumes</span><span class="p">,</span>
+                <span class="n">volume_manager_custom_parameters</span>
+            <span class="p">)</span>
+            <span class="n">volume_manager</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">volume_group_name</span>
+            <span class="p">)</span>
+            <span class="n">volume_manager</span><span class="o">.</span><span class="n">create_volumes</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span>
+            <span class="p">)</span>
+            <span class="n">volume_manager</span><span class="o">.</span><span class="n">mount_volumes</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">generic_fstab_entries</span> <span class="o">+=</span> <span class="n">volume_manager</span><span class="o">.</span><span class="n">get_fstab</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">persistency_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system</span> <span class="o">=</span> <span class="n">volume_manager</span>
+            <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume_manager</span><span class="o">.</span><span class="n">get_device</span><span class="p">()[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s1">&#39;Creating root(</span><span class="si">%s</span><span class="s1">) filesystem on </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">filesystem_custom_parameters</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;mount_options&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_root_mount_args</span>
+            <span class="p">}</span>
+            <span class="n">filesystem</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                <span class="n">filesystem_custom_parameters</span>
+            <span class="p">)</span>
+            <span class="n">filesystem</span><span class="o">.</span><span class="n">create_on_device</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_root_label</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system</span> <span class="o">=</span> <span class="n">filesystem</span>
+
+        <span class="c1"># create a random image identifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span> <span class="o">=</span> <span class="n">SystemIdentifier</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="o">.</span><span class="n">calculate_id</span><span class="p">()</span>
+
+        <span class="c1"># create first stage metadata to boot image</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_partition_id_config_to_boot_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_recovery_metadata_to_boot_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_raid_config_to_boot_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_generic_fstab_to_boot_image</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_modprobe_setup</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+        <span class="p">)</span>
+
+        <span class="c1"># create first stage metadata to system image</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_image_identifier_to_system_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_crypttab_to_system_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_generic_fstab_to_system_image</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+
+        <span class="c1"># create initrd cpio archive</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">create_initrd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="p">)</span>
+
+        <span class="c1"># create second stage metadata to system image</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_copy_first_boot_files_to_system_image</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_bootloader_config_to_system_image</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="o">.</span><span class="n">write_to_disk</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">storage_provider</span>
+        <span class="p">)</span>
+
+        <span class="c1"># set SELinux file security contexts if context exists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_selinux_file_contexts</span><span class="p">()</span>
+
+        <span class="c1"># syncing system data to disk image</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Syncing system to image&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_efi</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Syncing EFI boot data to EFI partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system_efi</span><span class="o">.</span><span class="n">sync_data</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_boot</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Syncing boot data at extra partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system_boot</span><span class="o">.</span><span class="n">sync_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_exclude_list_for_boot_data_sync</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; Syncing root filesystem data&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_is_overlay</span><span class="p">:</span>
+            <span class="n">squashed_root_file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">()</span>
+            <span class="n">squashed_root</span> <span class="o">=</span> <span class="n">FileSystemSquashFs</span><span class="p">(</span>
+                <span class="n">device_provider</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+            <span class="p">)</span>
+            <span class="n">squashed_root</span><span class="o">.</span><span class="n">create_on_file</span><span class="p">(</span>
+                <span class="n">filename</span><span class="o">=</span><span class="n">squashed_root_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">exclude</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_exclude_list_for_root_data_sync</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="s1">&#39;dd&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;if=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">squashed_root_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="s1">&#39;of=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;readonly&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">sync_data</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_exclude_list_for_root_data_sync</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># install boot loader</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_install_bootloader</span><span class="p">(</span><span class="n">device_map</span><span class="p">)</span>
+
+        <span class="c1"># set root filesystem properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_property_root_is_readonly_snapshot</span><span class="p">()</span>
+
+        <span class="c1"># prepare for install media if requested</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_media</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;dracut&#39;</span><span class="p">:</span>
+                <span class="c1"># for the installation process we need a kiwi initrd</span>
+                <span class="c1"># Therefore an extra install boot root system needs to</span>
+                <span class="c1"># be prepared if dracut was set as the initrd system</span>
+                <span class="c1"># to boot the system image</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Preparing extra install boot system&#39;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">set_initrd_system</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_initrd_system</span><span class="p">()</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span> <span class="o">=</span> <span class="n">BootImageKiwi</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+                <span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+
+                <span class="c1"># apply disk builder metadata also needed in the install initrd</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_partition_id_config_to_boot_image</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_recovery_metadata_to_boot_image</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_raid_config_to_boot_image</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_modprobe_setup</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+                <span class="p">)</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Saving boot image instance to file&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot_image.pickledump&#39;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># store image file name in result</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;disk_image&#39;</span><span class="p">,</span>
+            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">diskname</span><span class="p">,</span>
+            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">compress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">shasum</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+        <span class="c1"># create image root metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_packages&#39;</span><span class="p">,</span>
+            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_rpm_package_list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+            <span class="p">),</span>
+            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="n">key</span><span class="o">=</span><span class="s1">&#39;image_verified&#39;</span><span class="p">,</span>
+            <span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">export_rpm_package_verification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+            <span class="p">),</span>
+            <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">shasum</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span></div>
+
+<div class="viewcode-block" id="DiskBuilder.create_disk_format"><a class="viewcode-back" href="../../../api/kiwi.builder.html#kiwi.builder.disk.DiskBuilder.create_disk_format">[docs]</a>    <span class="k">def</span> <span class="nf">create_disk_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result_instance</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a bootable disk format from a previously</span>
+<span class="sd">        created raw disk image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating </span><span class="si">%s</span><span class="s1"> Disk Format&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span><span class="p">)</span>
+            <span class="n">disk_format</span> <span class="o">=</span> <span class="n">DiskFormat</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">image_format</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span>
+            <span class="p">)</span>
+            <span class="n">disk_format</span><span class="o">.</span><span class="n">create_image_format</span><span class="p">()</span>
+            <span class="n">disk_format</span><span class="o">.</span><span class="n">store_to_result</span><span class="p">(</span><span class="n">result_instance</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result_instance</span></div>
+
+<div class="viewcode-block" id="DiskBuilder.create_install_media"><a class="viewcode-back" href="../../../api/kiwi.builder.html#kiwi.builder.disk.DiskBuilder.create_install_media">[docs]</a>    <span class="k">def</span> <span class="nf">create_install_media</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result_instance</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build an installation image. The installation image is a</span>
+<span class="sd">        bootable hybrid ISO image which embeds the raw disk image</span>
+<span class="sd">        and an image installer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_media</span><span class="p">:</span>
+            <span class="n">install_image</span> <span class="o">=</span> <span class="n">InstallImageBuilder</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_load_boot_image_instance</span><span class="p">()</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_iso</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_stick</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating hybrid ISO installation image&#39;</span><span class="p">)</span>
+                <span class="n">install_image</span><span class="o">.</span><span class="n">create_install_iso</span><span class="p">()</span>
+                <span class="n">result_instance</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;installation_image&#39;</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="n">install_image</span><span class="o">.</span><span class="n">isoname</span><span class="p">,</span>
+                    <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">shasum</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_pxe</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating PXE installation archive&#39;</span><span class="p">)</span>
+                <span class="n">install_image</span><span class="o">.</span><span class="n">create_install_pxe_archive</span><span class="p">()</span>
+                <span class="n">result_instance</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;installation_pxe_archive&#39;</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="n">install_image</span><span class="o">.</span><span class="n">pxename</span><span class="p">,</span>
+                    <span class="n">use_for_bundle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">shasum</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result_instance</span></div>
+
+    <span class="k">def</span> <span class="nf">_load_boot_image_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">boot_image_dump_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot_image.pickledump&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">boot_image_dump_file</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">KiwiInstallMediaError</span><span class="p">(</span>
+                <span class="s1">&#39;No boot image instance dump </span><span class="si">%s</span><span class="s1"> found&#39;</span> <span class="o">%</span> <span class="n">boot_image_dump_file</span>
+            <span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">boot_image_dump_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">boot_image_dump</span><span class="p">:</span>
+                <span class="n">boot_image</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">boot_image_dump</span><span class="p">)</span>
+            <span class="n">boot_image</span><span class="o">.</span><span class="n">enable_cleanup</span><span class="p">()</span>
+            <span class="n">Path</span><span class="o">.</span><span class="n">wipe</span><span class="p">(</span><span class="n">boot_image_dump_file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">KiwiInstallMediaError</span><span class="p">(</span>
+                <span class="s1">&#39;Failed to load boot image dump: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">boot_image</span>
+
+    <span class="k">def</span> <span class="nf">_setup_selinux_file_contexts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">security_context</span> <span class="o">=</span> <span class="s1">&#39;/etc/selinux/targeted/contexts/files/file_contexts&#39;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="n">security_context</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">set_selinux_file_contexts</span><span class="p">(</span>
+                <span class="n">security_context</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_install_image_requested</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_iso</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_stick</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_pxe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_get_exclude_list_for_root_data_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="n">exclude_list</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;.profile&#39;</span><span class="p">,</span> <span class="s1">&#39;.kconfig&#39;</span><span class="p">,</span>
+            <span class="n">Defaults</span><span class="o">.</span><span class="n">get_shared_cache_location</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">==</span> <span class="s1">&#39;grub2_s390x_emu&#39;</span><span class="p">:</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/zipl/*&#39;</span><span class="p">)</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/zipl/.*&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/*&#39;</span><span class="p">)</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/.*&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;efi&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/efi/*&#39;</span><span class="p">)</span>
+            <span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boot/efi/.*&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">exclude_list</span>
+
+    <span class="k">def</span> <span class="nf">_get_exclude_list_for_boot_data_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;efi/*&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_build_boot_filesystems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;efi&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s1">&#39;Creating EFI(fat16) filesystem on </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">filesystem</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="p">(</span>
+                <span class="s1">&#39;fat16&#39;</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/efi/&#39;</span>
+            <span class="p">)</span>
+            <span class="n">filesystem</span><span class="o">.</span><span class="n">create_on_device</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_efi_label</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system_efi</span> <span class="o">=</span> <span class="n">filesystem</span>
+
+        <span class="k">if</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">boot_filesystem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">requested_boot_filesystem</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">boot_filesystem</span><span class="p">:</span>
+                <span class="n">boot_filesystem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span>
+            <span class="n">boot_directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/&#39;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">==</span> <span class="s1">&#39;grub2_s390x_emu&#39;</span><span class="p">:</span>
+                <span class="n">boot_directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/zipl/&#39;</span>
+                <span class="n">boot_filesystem</span> <span class="o">=</span> <span class="s1">&#39;ext2&#39;</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s1">&#39;Creating boot(</span><span class="si">%s</span><span class="s1">) filesystem on </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">boot_filesystem</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;boot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">filesystem</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="p">(</span>
+                <span class="n">boot_filesystem</span><span class="p">,</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;boot&#39;</span><span class="p">],</span> <span class="n">boot_directory</span>
+            <span class="p">)</span>
+            <span class="n">filesystem</span><span class="o">.</span><span class="n">create_on_device</span><span class="p">(</span>
+                <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">get_boot_label</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system_boot</span> <span class="o">=</span> <span class="n">filesystem</span>
+
+    <span class="k">def</span> <span class="nf">_build_and_map_disk_partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">wipe</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">vboot_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating Virtual boot partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_vboot_partition</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_vboot_partition_size</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">legacy_bios_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating EFI CSM(legacy bios) partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_efi_csm_partition</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_legacy_bios_partition_size</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">efi_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating EFI partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_efi_partition</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_efi_partition_size</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">ofw_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating PReP partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_prep_partition</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_prep_partition_size</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">need_boot_partition</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating boot partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_boot_partition</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">disk_setup</span><span class="o">.</span><span class="n">boot_partition_size</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_filesystem_is_overlay</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating readonly root partition&#39;</span><span class="p">)</span>
+            <span class="n">squashed_root_file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">()</span>
+            <span class="n">squashed_root</span> <span class="o">=</span> <span class="n">FileSystemSquashFs</span><span class="p">(</span>
+                <span class="n">device_provider</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span>
+            <span class="p">)</span>
+            <span class="n">squashed_root</span><span class="o">.</span><span class="n">create_on_file</span><span class="p">(</span>
+                <span class="n">filename</span><span class="o">=</span><span class="n">squashed_root_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="n">Defaults</span><span class="o">.</span><span class="n">get_shared_cache_location</span><span class="p">()]</span>
+            <span class="p">)</span>
+            <span class="n">squashed_rootfs_mbsize</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span>
+                <span class="n">squashed_root_file</span><span class="o">.</span><span class="n">name</span>
+            <span class="p">)</span> <span class="o">/</span> <span class="mi">1048576</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_root_readonly_partition</span><span class="p">(</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">squashed_rootfs_mbsize</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span> <span class="o">==</span> <span class="s1">&#39;lvm&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating LVM root partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_root_lvm_partition</span><span class="p">(</span><span class="s1">&#39;all_free&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdraid</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating mdraid root partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_root_raid_partition</span><span class="p">(</span><span class="s1">&#39;all_free&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; creating root partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_root_partition</span><span class="p">(</span><span class="s1">&#39;all_free&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">bios_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; setting active flag to primary boot partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">activate_boot_partition</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">ofw_mode</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; setting active flag to primary PReP partition&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">activate_boot_partition</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hybrid_mbr</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; converting partition table to hybrid GPT/MBR&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">create_hybrid_mbr</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_write_partition_id_config_to_boot_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating config.partids in boot system&#39;</span><span class="p">)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span><span class="p">,</span> <span class="s1">&#39;/config.partids&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">partition_id_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">get_public_partition_id_map</span><span class="p">()</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">partids</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">id_name</span><span class="p">,</span> <span class="n">id_value</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">partition_id_map</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                    <span class="n">partids</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">=&quot;</span><span class="si">{1}</span><span class="s1">&quot;</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">id_name</span><span class="p">,</span> <span class="n">id_value</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
+                    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_raid_config_to_boot_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdraid</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating etc/mdadm.conf in boot system&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raid_root</span><span class="o">.</span><span class="n">create_raid_config</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span> <span class="o">+</span> <span class="s1">&#39;/etc/mdadm.conf&#39;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_crypttab_to_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">luks</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating etc/crypttab&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">luks_root</span><span class="o">.</span><span class="n">create_crypttab</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/etc/crypttab&#39;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_generic_fstab_to_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating generic system etc/fstab&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_generic_fstab</span><span class="p">(</span><span class="n">device_map</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_generic_fstab_to_boot_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating generic boot image etc/fstab&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_write_generic_fstab</span><span class="p">(</span><span class="n">device_map</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">setup</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_generic_fstab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">,</span> <span class="n">setup</span><span class="p">):</span>
+        <span class="n">root_is_snapshot</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_snapshot</span><span class="p">()</span>
+        <span class="n">root_is_readonly_snapshot</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_readonly_snapshot</span><span class="p">()</span>
+
+        <span class="n">fs_check_interval</span> <span class="o">=</span> <span class="s1">&#39;1 1&#39;</span>
+        <span class="n">custom_root_mount_args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_root_mount_args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">root_is_snapshot</span> <span class="ow">and</span> <span class="n">root_is_readonly_snapshot</span><span class="p">:</span>
+            <span class="n">custom_root_mount_args</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;ro&#39;</span><span class="p">]</span>
+            <span class="n">fs_check_interval</span> <span class="o">=</span> <span class="s1">&#39;0 0&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_generic_fstab_entry</span><span class="p">(</span>
+            <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">(),</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+            <span class="n">custom_root_mount_args</span><span class="p">,</span> <span class="n">fs_check_interval</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span> <span class="o">==</span> <span class="s1">&#39;grub2_s390x_emu&#39;</span><span class="p">:</span>
+                <span class="n">boot_mount_point</span> <span class="o">=</span> <span class="s1">&#39;/boot/zipl&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">boot_mount_point</span> <span class="o">=</span> <span class="s1">&#39;/boot&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add_generic_fstab_entry</span><span class="p">(</span>
+                <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;boot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">(),</span> <span class="n">boot_mount_point</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;efi&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add_generic_fstab_entry</span><span class="p">(</span>
+                <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">(),</span> <span class="s1">&#39;/boot/efi&#39;</span>
+            <span class="p">)</span>
+        <span class="n">setup</span><span class="o">.</span><span class="n">create_fstab</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">generic_fstab_entries</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_add_generic_fstab_entry</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">mount_point</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="s1">&#39;0 0&#39;</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">options</span><span class="p">:</span>
+            <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;defaults&#39;</span><span class="p">]</span>
+        <span class="n">block_operation</span> <span class="o">=</span> <span class="n">BlockID</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">blkid_type</span> <span class="o">=</span> <span class="s1">&#39;LABEL&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">persistency_type</span> <span class="o">==</span> <span class="s1">&#39;by-label&#39;</span> <span class="k">else</span> <span class="s1">&#39;UUID&#39;</span>
+        <span class="n">device_id</span> <span class="o">=</span> <span class="n">block_operation</span><span class="o">.</span><span class="n">get_blkid</span><span class="p">(</span><span class="n">blkid_type</span><span class="p">)</span>
+        <span class="n">fstab_entry</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">blkid_type</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">mount_point</span><span class="p">,</span>
+                <span class="n">block_operation</span><span class="o">.</span><span class="n">get_filesystem</span><span class="p">(),</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">options</span><span class="p">),</span> <span class="n">check</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">fstab_entry</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">generic_fstab_entries</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">generic_fstab_entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">fstab_entry</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_image_identifier_to_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating image identifier: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbrid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/boot/mbrid&#39;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_recovery_metadata_to_boot_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/recovery.partition.size&#39;</span><span class="p">):</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Copying recovery metadata to boot image&#39;</span><span class="p">)</span>
+            <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;/recovery.partition.size&#39;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_bootloader_config_to_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating </span><span class="si">%s</span><span class="s1"> bootloader configuration&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span><span class="p">)</span>
+        <span class="n">boot_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_boot_names</span><span class="p">()</span>
+        <span class="n">boot_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">boot_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;boot&#39;</span><span class="p">]</span>
+
+        <span class="n">partition_id_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">get_public_partition_id_map</span><span class="p">()</span>
+        <span class="n">boot_partition_id</span> <span class="o">=</span> <span class="n">partition_id_map</span><span class="p">[</span><span class="s1">&#39;kiwi_RootPart&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;kiwi_BootPart&#39;</span> <span class="ow">in</span> <span class="n">partition_id_map</span><span class="p">:</span>
+            <span class="n">boot_partition_id</span> <span class="o">=</span> <span class="n">partition_id_map</span><span class="p">[</span><span class="s1">&#39;kiwi_BootPart&#39;</span><span class="p">]</span>
+
+        <span class="n">root_uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">get_uuid</span><span class="p">(</span>
+            <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">boot_uuid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">get_uuid</span><span class="p">(</span>
+            <span class="n">boot_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span><span class="o">.</span><span class="n">setup_disk_boot_images</span><span class="p">(</span><span class="n">boot_uuid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span><span class="o">.</span><span class="n">setup_disk_image_config</span><span class="p">(</span>
+            <span class="n">boot_uuid</span><span class="o">=</span><span class="n">boot_uuid</span><span class="p">,</span>
+            <span class="n">root_uuid</span><span class="o">=</span><span class="n">root_uuid</span><span class="p">,</span>
+            <span class="n">kernel</span><span class="o">=</span><span class="n">boot_names</span><span class="o">.</span><span class="n">kernel_name</span><span class="p">,</span>
+            <span class="n">initrd</span><span class="o">=</span><span class="n">boot_names</span><span class="o">.</span><span class="n">initrd_name</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bootloader_config</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">call_edit_boot_config_script</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requested_filesystem</span><span class="p">,</span> <span class="n">boot_partition_id</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_install_bootloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_map</span><span class="p">):</span>
+        <span class="n">root_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span>
+        <span class="n">boot_device</span> <span class="o">=</span> <span class="n">root_device</span>
+        <span class="k">if</span> <span class="s1">&#39;boot&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">boot_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;boot&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s1">&#39;readonly&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">root_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;readonly&#39;</span><span class="p">]</span>
+
+        <span class="n">custom_install_arguments</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;boot_device&#39;</span><span class="p">:</span> <span class="n">boot_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">(),</span>
+            <span class="s1">&#39;root_device&#39;</span><span class="p">:</span> <span class="n">root_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">(),</span>
+            <span class="s1">&#39;firmware&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span><span class="p">,</span>
+            <span class="s1">&#39;target_removable&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_removable</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="s1">&#39;efi&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">efi_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;efi&#39;</span><span class="p">]</span>
+            <span class="n">custom_install_arguments</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;efi_device&#39;</span><span class="p">:</span> <span class="n">efi_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">()}</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;prep&#39;</span> <span class="ow">in</span> <span class="n">device_map</span><span class="p">:</span>
+            <span class="n">prep_device</span> <span class="o">=</span> <span class="n">device_map</span><span class="p">[</span><span class="s1">&#39;prep&#39;</span><span class="p">]</span>
+            <span class="n">custom_install_arguments</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;prep_device&#39;</span><span class="p">:</span> <span class="n">prep_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">()}</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">umount_volumes</span><span class="p">()</span>
+            <span class="n">custom_install_arguments</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;system_volumes&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">get_volumes</span><span class="p">()}</span>
+            <span class="p">)</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s2">&quot;custom arguments for bootloader installation </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">custom_install_arguments</span>
+        <span class="p">)</span>
+        <span class="n">bootloader</span> <span class="o">=</span> <span class="n">BootLoaderInstall</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bootloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">storage_provider</span><span class="p">,</span>
+            <span class="n">custom_install_arguments</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">bootloader</span><span class="o">.</span><span class="n">install_required</span><span class="p">():</span>
+            <span class="n">bootloader</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_setup</span><span class="o">.</span><span class="n">call_edit_boot_install_script</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">diskname</span><span class="p">,</span> <span class="n">boot_device</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_setup_property_root_is_readonly_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">volume_manager_name</span><span class="p">:</span>
+            <span class="n">root_is_snapshot</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_snapshot</span><span class="p">()</span>
+            <span class="n">root_is_readonly_snapshot</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">xml_state</span><span class="o">.</span><span class="n">build_type</span><span class="o">.</span><span class="n">get_btrfs_root_is_readonly_snapshot</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">root_is_snapshot</span> <span class="ow">and</span> <span class="n">root_is_readonly_snapshot</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="s1">&#39;Setting root filesystem into read-only mode&#39;</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">mount_volumes</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">set_property_readonly_root</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">umount_volumes</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_copy_first_boot_files_to_system_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">boot_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_boot_names</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Copy boot files to system image&#39;</span><span class="p">)</span>
+            <span class="n">kernel</span> <span class="o">=</span> <span class="n">Kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span><span class="p">)</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; boot image kernel as </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">boot_names</span><span class="o">.</span><span class="n">kernel_name</span><span class="p">)</span>
+            <span class="n">kernel</span><span class="o">.</span><span class="n">copy_kernel</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;/boot/&#39;</span><span class="p">,</span> <span class="n">boot_names</span><span class="o">.</span><span class="n">kernel_name</span><span class="p">])</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">machine</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">machine</span><span class="o">.</span><span class="n">get_domain</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;dom0&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">kernel</span><span class="o">.</span><span class="n">get_xen_hypervisor</span><span class="p">():</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; boot image Xen hypervisor as xen.gz&#39;</span><span class="p">)</span>
+                    <span class="n">kernel</span><span class="o">.</span><span class="n">copy_xen_hypervisor</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;/boot/xen.gz&#39;</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">KiwiDiskBootImageError</span><span class="p">(</span>
+                        <span class="s1">&#39;No hypervisor in boot image tree </span><span class="si">%s</span><span class="s1"> found&#39;</span> <span class="o">%</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+                    <span class="p">)</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--&gt; initrd archive as </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">boot_names</span><span class="o">.</span><span class="n">initrd_name</span><span class="p">)</span>
+        <span class="n">Command</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">initrd_filename</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;/boot/&#39;</span><span class="p">,</span> <span class="n">boot_names</span><span class="o">.</span><span class="n">initrd_name</span><span class="p">])</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_boot_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">boot_names_type</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+            <span class="s1">&#39;boot_names_type&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;kernel_name&#39;</span><span class="p">,</span> <span class="s1">&#39;initrd_name&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">kernel</span> <span class="o">=</span> <span class="n">Kernel</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+        <span class="p">)</span>
+        <span class="n">kernel_info</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">get_kernel</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kernel_info</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">KiwiDiskBootImageError</span><span class="p">(</span>
+                <span class="s1">&#39;No kernel in boot image tree </span><span class="si">%s</span><span class="s1"> found&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">boot_image</span><span class="o">.</span><span class="n">boot_root_directory</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">initrd_system</span> <span class="o">==</span> <span class="s1">&#39;dracut&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">boot_names_type</span><span class="p">(</span>
+                <span class="n">kernel_name</span><span class="o">=</span><span class="n">kernel_info</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">initrd_name</span><span class="o">=</span><span class="s1">&#39;initrd-&#39;</span> <span class="o">+</span> <span class="n">kernel_info</span><span class="o">.</span><span class="n">version</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">boot_names_type</span><span class="p">(</span>
+                <span class="n">kernel_name</span><span class="o">=</span><span class="s1">&#39;linux.vmx&#39;</span><span class="p">,</span>
+                <span class="n">initrd_name</span><span class="o">=</span><span class="s1">&#39;initrd.vmx&#39;</span>
+            <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Marcus Schäfer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'8.29.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
