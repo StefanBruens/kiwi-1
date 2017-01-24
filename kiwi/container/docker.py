@@ -62,7 +62,7 @@ class ContainerImageDocker(object):
         :param string filename: archive file name
         """
         exclude_list = [
-            'image', '.profile', '.kconfig', 'boot',
+            'image', '.profile', '.kconfig', 'boot', 'dev', 'sys', 'proc',
             Defaults.get_shared_cache_location()
         ]
 
@@ -86,7 +86,7 @@ class ContainerImageDocker(object):
             ['umoci', 'unpack', '--image', container_tag, self.docker_root_dir]
         )
         docker_root = DataSync(
-            self.root_dir, os.sep.join([self.docker_root_dir, 'rootfs'])
+            self.root_dir + os.sep, os.sep.join([self.docker_root_dir, 'rootfs'])
         )
         docker_root.sync_data(
             options=['-a', '-H', '-X', '-A'], exclude=exclude_list

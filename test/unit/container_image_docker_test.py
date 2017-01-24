@@ -80,10 +80,13 @@ class TestContainerImageDocker(object):
             ])
         ]
         mock_sync.assert_called_once_with(
-            'root_dir', 'kiwi_docker_root_dir/rootfs'
+            'root_dir/', 'kiwi_docker_root_dir/rootfs'
         )
         docker_root.sync_data.assert_called_once_with(
-            exclude=['image', '.profile', '.kconfig', 'boot', 'var/cache/kiwi'],
+            exclude=[
+                'image', '.profile', '.kconfig', 'boot', 'dev', 'sys', 'proc',
+                'var/cache/kiwi'
+            ],
             options=['-a', '-H', '-X', '-A']
         )
         mock_compress.assert_called_once_with('result.tar')
